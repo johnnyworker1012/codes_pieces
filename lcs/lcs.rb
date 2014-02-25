@@ -1,13 +1,8 @@
 def suffices str
-  str = str.each_char.to_a
   results = []
-  len = str.length
-
-  for i in (len-1).downto(0)
-    results << str[i..(len-1)]
-  end
-
-  results.map{|suffix|suffix.join}.sort
+  len = str.chars.length
+  (len - 1).downto(0) {|i| results << str[i..(len - 1)]}
+  results.sort
 end
 
 def prefix_lcs str1, str2
@@ -29,15 +24,11 @@ def prefix_lcs str1, str2
 end
 
 def lcs str1, str2
-  suffices = suffices str1+str2
-  len = str1.length
+  suffices = suffices str1 + str2
 
   lcs = []
-  for i in (0...(len-1))
-      comp = prefix_lcs(suffices[i], suffices[i+1])
-      if comp != ""
-        lcs << comp
-      end
+  for i in (0...(suffices.length - 1))
+      lcs << prefix_lcs(suffices[i], suffices[i+1])
   end
 
   lcs.reduce({}){|memo,i|memo.merge({i=>i.length})}
