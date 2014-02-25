@@ -1,4 +1,4 @@
-# Algorithm Pieces
+# Codes Pieces
 
 Programs about algorithmic problems
 
