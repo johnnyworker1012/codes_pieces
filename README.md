@@ -1,7 +1,5 @@
 # Codes Pieces
 
-Programs about algorithmic problems
-
 ## Index of problems
 
 | Problem                                                         |
